@@ -6,7 +6,9 @@ if [ ! -d "$usb_path" ]; then
     exit 1
 fi
 
-if [[ -d "~/Backup" ]]; then
+is_backup=$(find ~ -maxdepth 1 -type d -name 'Backup')
+
+if [[ ! -z ${is_backup} ]]; then
   gio trash ~/Backup/
 fi
 
@@ -14,7 +16,9 @@ mkdir ~/Backup &&
 
 cp -r "${usb_path}"/* ~/Backup/ &&
 
+echo ""
 echo "Backup completed successfully to ~/Backup"
+echo ""
 
 current_dir=$(dirname "$0")
 "$current_dir"/backup_usb_to_another_usb.sh

@@ -16,17 +16,19 @@ while [[ true ]]; do
       first_backup_usb=0
 
       read -ep "Please plug in this backup USB.
-        What is the file path to this backup USB: " backup_usb
+      What is the file path to this backup USB: " backup_usb
       if [ ! -d "$backup_usb" ]; then
           echo "Error: The provided path is not a directory."
-          continue;;
+          continue
       fi
 
       gio trash "$backup_usb"/* &&
 
       cp -r ~/Backup/* "$backup_usb"/ &&
 
+      echo ""
       echo "Backup completed successfully to ${backup_usb}";;
+      echo ""
     [Nn])
       break;;
     *)
