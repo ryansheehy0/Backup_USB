@@ -1,3 +1,5 @@
+#!/bin/bash
+
 first_backup_usb=1
 
 while [[ true ]]; do
@@ -26,15 +28,11 @@ while [[ true ]]; do
 
       cp -r ~/Backup/* "$backup_usb"/ &&
 
-      echo ""
       echo "Backup completed successfully to ${backup_usb}";;
-      echo ""
     [Nn])
       break;;
     *)
-      echo ""
       echo "Please use (y/n)."
-      echo ""
       continue;;
   esac
 

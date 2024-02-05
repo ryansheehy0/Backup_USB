@@ -16,9 +16,7 @@ mkdir ~/Backup &&
 
 cp -r "${usb_path}"/* ~/Backup/ &&
 
-echo ""
 echo "Backup completed successfully to ~/Backup"
-echo ""
 
 current_dir=$(dirname "$0")
 "$current_dir"/backup_usb_to_another_usb.sh
